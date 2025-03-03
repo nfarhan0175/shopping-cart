@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "title": "Elegant Floral Frock",
+        "price": 45.99,
+        "description": "A beautiful floral frock, perfect for evening parties. Soft and breathable fabric for comfort.",
+        "category": "women's clothing",
+        "image": "frock1.jpeg"
+    },
+    {
+        "id": 2,
+        "title": "Casual Shirt Dress",
+        "price": 32.99,
+        "description": "Casual shirt dress with a relaxed fit, made of cotton fabric, great for summer outings.",
+        "category": "women's clothing",
+        "image": "shirt1.jpeg"
+    },
+    {
+        "id": 3,
+        "title": "Cozy Woolen Jacket",
+        "price": 55.00,
+        "description": "A stylish woolen jacket that keeps you warm during winter while maintaining a chic look.",
+        "category": "women's clothing",
+        "image": "hoddie1.jpeg"
+    },
+    {
+        "id": 4,
+        "title": "Floral Patterned Frock",
+        "price": 50.00,
+        "description": "This frock features a vibrant floral pattern and is ideal for casual day wear or summer events.",
+        "category": "women's clothing",
+        "image": "frock2.jpeg"
+    },
+    {
+        "id": 5,
+        "title": "Denim Shirt with Pockets",
+        "price": 40.00,
+        "description": "Classic denim shirt with functional pockets and button-down design, perfect for layering.",
+        "category": "women's clothing",
+        "image": "shirt2.jpeg"
+    },
+    {
+        "id": 6,
+        "title": "Faux Leather Biker Jacket",
+        "price": 80.00,
+        "description": "Sleek faux leather biker jacket with an edgy design, perfect for a stylish evening look.",
+        "category": "women's clothing",
+        "image": "hoddie2.jpeg"
+    },
+    {
+        "id": 7,
+        "title": "Peachy Party Frock",
+        "price": 38.99,
+        "description": "A gorgeous peach-colored frock with delicate lace details, great for formal gatherings.",
+        "category": "women's clothing",
+        "image": "frock3.jpeg"
+    },
+    {
+        "id": 8,
+        "title": "Striped Casual Shirt",
+        "price": 28.00,
+        "description": "A simple striped shirt made of lightweight cotton, perfect for casual days out.",
+        "category": "women's clothing",
+        "image": "shirt3.jpeg"
+    },
+    {
+        "id": 9,
+        "title": "Oversized Puffer Jacket",
+        "price": 100.00,
+        "description": "Warm and cozy oversized puffer jacket designed to protect you from the harsh winter chill.",
+        "category": "women's clothing",
+        "image": "hoddie3.jpeg"
+    },
+    {
+        "id": 10,
+        "title": "Summer Floral Frock",
+        "price": 35.50,
+        "description": "A light floral frock ideal for summer days, designed with comfort and style in mind.",
+        "category": "women's clothing",
+        "image": "frock4.jpeg"
+    },
+    {
+        "id": 11,
+        "title": "Plaid Shirt Dress",
+        "price": 42.00,
+        "description": "Plaid shirt dress with a stylish tie at the waist, perfect for a casual but polished look.",
+        "category": "women's clothing",
+        "image": "shirt4.jpeg"
+    },
+    {
+        "id": 12,
+        "title": "Faux Fur Lined Jacket",
+        "price": 90.00,
+        "description": "Luxurious faux fur-lined jacket for ultimate comfort and style, great for winter.",
+        "category": "women's clothing",
+        "image": "hoddie4.jpeg"
+    },
+    {
+        "id": 13,
+        "title": "Ruffled Sleeve Frock",
+        "price": 55.00,
+        "description": "A chic frock with ruffled sleeves and a flattering A-line silhouette, perfect for special occasions.",
+        "category": "women's clothing",
+        "image": "frock5.jpeg"
+    },
+    {
+        "id": 14,
+        "title": "Casual Chambray Shirt",
+        "price": 30.99,
+        "description": "Relaxed fit chambray shirt, ideal for layering or wearing alone on warmer days.",
+        "category": "women's clothing",
+        "image": "shirt5.jpeg"
+    },
+    {
+        "id": 15,
+        "title": "Hooded Winter Jacket",
+        "price": 70.00,
+        "description": "Cozy hooded winter jacket that combines warmth with style, perfect for chilly weather.",
+        "category": "women's clothing",
+        "image": "jacket1.jpeg"
+    },
+    {
+        "id": 16,
+        "title": "Elegant Lace Frock",
+        "price": 75.00,
+        "description": "An elegant lace frock perfect for weddings or formal events. Beautiful design with intricate details.",
+        "category": "women's clothing",
+        "image": "frock6.jpeg"
+    },
+    {
+        "id": 17,
+        "title": "Button-Up Plaid Shirt",
+        "price": 27.00,
+        "description": "Casual plaid shirt with a button-up design. Classic look that never goes out of style.",
+        "category": "women's clothing",
+        "image": "shirt6.jpeg"
+    },
+    {
+        "id": 18,
+        "title": "Down Parka Jacket",
+        "price": 120.00,
+        "description": "Stylish and warm down parka jacket, designed to keep you comfortable during cold winters.",
+        "category": "women's clothing",
+        "image": "jacket2.jpeg"
+    },
+    {
+        "id": 19,
+        "title": "Maxi Frock with Belt",
+        "price": 60.00,
+        "description": "A beautiful maxi frock featuring a flattering belt, perfect for evening events or a night out.",
+        "category": "women's clothing",
+        "image": "frock7.jpeg"
+    },
+    {
+        "id": 20,
+        "title": "Casual Tencel Shirt",
+        "price": 34.99,
+        "description": "A breathable and soft Tencel shirt that feels great on the skin, ideal for casual wear.",
+        "category": "women's clothing",
+        "image": "shirt7.jpeg"
+    }
+]

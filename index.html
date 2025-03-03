@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <title>Shoppinmg card</title>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container">
+      <a class="navbar-brand" href="#"><b>Shopping Cart</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" href="shopping cart.html">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="cart.html">
+                      <i class="fas fa-shopping-cart"></i> Cart
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<!-- Shopping Card View -->
+<div class="container mt-5 pt-5">
+  <h2 class="text-center mb-4">Products</h2>
+  <div class="row">
+      <!-- Card 1 -->
+       <div class="row" id="cardView">
+
+       </div>
+  </div>
+</div>
+
+<!-- Cart Section -->
+<div class="container mt-5 pt-5">
+    <h2 class="mb-4 text-center">Shopping Cart</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered text-center">
+            <thead class="table-success">
+                <tr>
+                    <th>Remove</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+    </div>
+
+    <!-- Coupon and Cart Totals -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h3>Apply Coupon</h3>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Your Coupon">
+                <button class="btn btn-success" onclick="applyCoupon()" id="coupon">Apply</button>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Cart Totals</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td><strong>Cart total</strong></td>
+                    <td id="ctotal">৳ 0.00</td>
+                </tr>
+                <tr>
+                    <td><strong>Shipping</strong></td>
+                    <td id="shipping">100</td>
+                </tr>
+                <tr class="table-success text-dark">
+                    <td><strong>Total</strong></td>
+                    <td id="total"><strong>৳ 0.00</strong></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="shopping.js"></script>
+</body>
+</html>
