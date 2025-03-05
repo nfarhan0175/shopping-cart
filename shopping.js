@@ -1,5 +1,7 @@
 let productsData = []; // Global variable to store fetched products
-let cost = 0;
+let appliedCoupon = false;
+let coupon = 0;
+let discountAmount = 0;
 
 fetch('./product.json') // Ensure the correct JSON filename
   .then(response => response.json())
@@ -7,7 +9,7 @@ fetch('./product.json') // Ensure the correct JSON filename
     productsData = data; // Store data globally
     showProducts(data);
   })
-  .catch(error => console.error("Error loading JSON:", error)); // Debugging
+  .catch(error => console.error("Error loading JSON:", error));
 
 function showProducts(data) {
     let cardView = document.getElementById("cardView");
@@ -53,17 +55,14 @@ function addToCart(id) {
     let product = productsData.find(p => p.id === id);
     let cartTable = document.getElementById("productList");
   
-    // Check if product already exists in cart
     let existingRow = document.querySelector(`#cart-item-${id}`);
     if (existingRow) {
-        // Increase quantity if the product already exists
         let quantityCell = existingRow.querySelector(".cart-quantity");
         let quantity = parseInt(quantityCell.innerText) + 1;
         quantityCell.innerText = quantity;
     } else {
-        // Create a new row for the product
         let newRow = document.createElement("tr");
-        newRow.id = `cart-item-${id}`; // Set unique ID for each cart row
+        newRow.id = `cart-item-${id}`;
         newRow.innerHTML = `
             <td>
                 <button class="btn btn-danger" onclick="removeFromCart(${id})">
@@ -79,75 +78,73 @@ function addToCart(id) {
                 <button class="btn btn-sm btn-success" onclick="updateQuantity(${id}, 1)">+</button>
             </td>
         `;      
-        // Append the new row to the cart table
         cartTable.appendChild(newRow);      
     }
     totalAmount();
-  }
-  
-  function updateQuantity(id, change) {
+}
+
+function updateQuantity(id, change) {
     let quantityCell = document.querySelector(`#quantity-${id}`);
     let currentQuantity = parseInt(quantityCell.innerText);
-  
-    // Ensure quantity does not go below 1
     let newQuantity = Math.max(1, currentQuantity + change);
     quantityCell.innerText = newQuantity;
-  
-    totalAmount(); // Update total price dynamically
-  }
-  
-
-
-let appliedCoupon = false; // Track whether coupon has been applied
+    totalAmount();
+}
 
 function totalAmount() {
-  let cartTable = document.getElementById("productList");
-  let totalCost = 0;
+    let cartTable = document.getElementById("productList");
+    let totalCost = 0;
+    
+    Array.from(cartTable.rows).forEach(row => {
+        let quantity = parseInt(row.querySelector(".cart-quantity").innerText);
+        let priceText = row.cells[3].innerText.replace('৳', '').trim();
+        let price = parseFloat(priceText);
+        totalCost += quantity * price;
+    });
 
-  // Loop through each row in the cart and calculate total cost
-  Array.from(cartTable.rows).forEach(row => {
-    let quantity = parseInt(row.querySelector(".cart-quantity").innerText);
-    let priceText = row.cells[3].innerText.replace('৳', '').trim();  // Remove currency symbol and spaces
-    let price = parseFloat(priceText);
-    totalCost += quantity * price;
-  });
-
-  // Update the cart total
-  document.getElementById("ctotal").innerText = `৳ ${totalCost.toFixed(2)}`;
-
-  // Shipping cost
-  let shippingCost = 100;
-
-  // Calculate final total
-  let finalTotal = totalCost + shippingCost;
-
-  // Apply discount if coupon is valid
-  if (appliedCoupon) {
-    let discountAmount = totalCost * 0.10; // 10% discount
-    finalTotal = (totalCost - discountAmount) + shippingCost;
-  }
-  document.getElementById("total").innerText = `৳ ${finalTotal.toFixed(2)}`;
+    let shippingCost = totalCost > 0 ? 100 : 0;
+    let subTotal = totalCost + shippingCost;
+    document.getElementById("ctotal").innerText = `৳ ${totalCost.toFixed(2)}`;
+    document.getElementById("subtotal").innerText = `৳ ${subTotal.toFixed(2)}`;
+    
+    if (appliedCoupon) {
+        discountAmount = totalCost * (coupon / 100);
+    } else {
+        discountAmount = 0;
+    }  
+    document.getElementById("discount").innerText = `৳ ${discountAmount.toFixed(2)}`;
+    let finalTotal = subTotal - discountAmount;
+    document.getElementById("total").innerText = `৳ ${finalTotal.toFixed(2)}`;
 }
 
 function applyCoupon() {
-  let couponInput = document.querySelector(".input-group input").value.trim(); // Get input value
-  if (couponInput === "ostad") {
-    appliedCoupon = true;
-    alert("Coupon applied! You got a 10% discount.");
-  } else {
-    appliedCoupon = false;
-    alert("Invalid coupon code.");
-  }
-  totalAmount(); // Recalculate total with discount
+    let couponInputElement = document.getElementById("couponInput");
+    if (!couponInputElement) {
+        alert("Coupon input field not found! Check your HTML.");
+        return;
+    }
+    
+    let couponInput = couponInputElement.value.trim().toLowerCase();
+    if (couponInput === "ostad10") {
+        coupon = 10;
+        appliedCoupon = true;
+        alert("Coupon applied! You got a 10% discount.");
+    } else if (couponInput === "ostad5") {
+        coupon = 5;
+        appliedCoupon = true;
+        alert("Coupon applied! You got a 5% discount.");
+    } else {
+        coupon = 0;
+        appliedCoupon = false;
+        alert("Invalid coupon code.");
+    }
+    totalAmount();
 }
 
-
-
-// Remove product from cart
 function removeFromCart(id) {
-  let row = document.querySelector(`#cart-item-${id}`);
-  if (row) {
-      row.remove();
-      totalAmount();
-  }
+    let row = document.querySelector(`#cart-item-${id}`);
+    if (row) {
+        row.remove();
+        totalAmount();
+    }
 }
